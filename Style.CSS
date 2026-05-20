@@ -1,0 +1,376 @@
+@font-face {
+    font-family: lakki;
+    src: url('fonts/LakkiReddy-Regular.ttf');
+}
+body{
+    background-color: #0d0d0d;
+    color: white;
+    margin: 0;
+    padding: 0;
+   
+}
+section{
+    scroll-margin-top: 80px;
+}
+
+.hub {
+    width: 100%;
+    padding: 9px;
+    margin: 0;
+    display: flex;
+    background-color: #0d0d0d;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.hub a,
+.hub button#lang-toggle {
+    text-decoration: none;
+    color: #3C7B48;
+    font-family: lakki;
+    font-size: 20px;
+
+    /* reset de estilo padrão do button */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hub a:hover,
+.hub button#lang-toggle:hover {
+    color: aqua;
+}
+
+/* ============================================
+   SEÇÃO HOME — SLIDESHOW DE FUNDO
+   ============================================ */
+
+
+/*
+ * ─── SLIDESHOW: ADICIONAR NOVAS ARTES AQUI ───────────────────────────────────
+ * Para cada nova arte, adicione um novo <div class="slide"> dentro de
+ * <div class="slideshow"> no index.html (veja o comentário lá também).
+ * Aqui no CSS, adicione um novo seletor .slide:nth-child(N) com a imagem,
+ * e ajuste o @keyframes slideshow aumentando os % proporcionalmente.
+ *
+ * Atualmente: 2 imagens → cada uma fica ~50% do tempo.
+ * Com 3 imagens: cada uma ficaria ~33% do tempo, e assim por diante.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+.slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideshow 12s infinite;
+}
+
+/* IMAGEM 1 — arte do 1° jogo */
+.slide:nth-child(1) {
+    background-image: url('imagens/Portifolio/1° jogo/Imagem 1° jogo.png');
+    animation-delay: 0s;
+}
+
+/* IMAGEM 2 — arte do 2° jogo */
+.slide:nth-child(2) {
+    background-image: url('imagens/Portifolio/2° jogo/Imagem 2° jogo.png');
+    animation-delay: 6s;
+}
+
+/* Para adicionar uma 3ª imagem:
+   .slide:nth-child(3) {
+       background-image: url('imagens/Portifolio/3° jogo/Imagem 3° jogo.png');
+       animation-delay: 12s;  (= N-1 * duração/total )
+   }
+   E mude o "12s" na .slide para "18s", e ajuste os % do @keyframes abaixo.
+*/
+
+@keyframes slideshow {
+    0%   { opacity: 0; }
+    5%   { opacity: 0.25; }   /* fade in suave */
+    45%  { opacity: 0.25; }   /* fica visível */
+    50%  { opacity: 0; }      /* fade out */
+    100% { opacity: 0; }
+}
+
+/* Overlay escuro para o conteúdo ficar legível sobre as artes */
+.slideshow-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+/* Todo conteúdo do Home fica acima do slideshow 
+#Home > *:not(.slideshow):not(.slideshow-overlay) {
+    position: relative;
+    z-index: 2;
+}*/
+
+
+.contacts img{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    margin: 30px 40px;
+    justify-content: center;
+    border: 10px;
+    border-radius: 50%;
+    border-color: #121212;
+}
+
+.contacts{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    justify-items: center;
+    position: relative; 
+    z-index: 9999;   
+}
+
+.LogoSite img{
+    width: 350px;
+    height: 350px;
+    margin-top: 80px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.LogoSite{
+    display: flex;
+    justify-content: center;
+}
+
+.Nome p{
+    color: #3C7B48;
+    font-family: lakki;
+    
+    
+}
+
+.Nome p#Jud{
+    margin-bottom: 0%;
+    font-size: 32px;
+}
+
+.Nome p#Prog{
+    margin-top: 0%;
+    font-size: 16px;
+}
+
+.Nome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*=============== SOBRE MIM ===========*/
+
+.Sobre-card{
+    height: 700px;
+    width: 650px;
+    background-color: currentColor;
+    color: #121212;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-self: center;
+    margin-top: 150px;
+    
+}
+
+.Sobre-card h1{
+    font-family: lakki;
+    font-size: 32px;
+    color: #3C7B48;
+    text-align: center;
+    
+    order: 1;
+    border-bottom: 1px solid #555555;
+    width: 50%;
+    margin-bottom: 80px;
+}
+
+.Sobre-card p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: white;
+    margin: 10% 40px 40px;
+    text-align: center;
+}
+
+.Sobre-card img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    display: flex;
+    border-radius: 50%;
+
+}
+
+.Sobre{
+    display: flex;
+    justify-content: center;
+}
+
+/*============= Portifolio =================*/
+
+.Titulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+.Titulo h1{
+    font-family: lakki;
+    font-size: 32px;
+    color: #3C7B48;
+    text-align: center;
+    order: 2;
+    border-bottom: 1px solid #555555;
+    width: 23%;
+
+}
+
+.PortAll{
+    display: flex;
+    flex-direction: column;
+}
+/*================ 1° jogo =================*/
+
+.Port1-card .Art img{
+    width: 480px;
+    height: 152px;
+    object-fit: cover;
+    justify-self: left;
+    margin: 45px 50px 30px;
+    flex-direction: column;
+}
+
+.Port1-card .Text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 2.05;
+    color: white;
+    margin: 25px 15px 0;
+    text-align: justify;
+}
+
+.Port1-card{
+    display: flex;
+    margin-top: 150px;
+}
+
+/*================ 2° jogo =================*/
+.Port2-card .Art img{
+    width: 480px;
+    height: 152px;
+    object-fit: cover;
+    justify-self: left;
+    margin: 45px 50px 30px;
+   
+}
+
+.Port2-card .Text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 2.05;
+    color: white;
+    margin: 25px 15px 0;
+    text-align: justify;
+}
+
+.Port2-card{
+    display: flex;
+    margin-top: 70px;
+    flex-direction: row-reverse;
+}
+
+/*============= Contact =================*/
+
+.Contact-card{
+    height: 700px;
+    width: 650px;
+    background-color: currentColor;
+    color: #121212;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    margin-top: 150px;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    
+}
+
+.Contact-card form{
+    margin-left: 130px;
+}
+
+.Contact-card h1{
+    font-family: lakki;
+    font-size: 32px;
+    color: #3C7B48;
+    text-align: center;
+    order: 1;
+    border-bottom: 1px solid #555555;
+    width: 50%;
+    margin-bottom: 80px;
+}
+
+.Contact-card button{
+    width: 15%;
+    height: 40px;
+    border: none;
+    color: wheat;
+    background: #555555;
+    margin-bottom: 20px;
+}
+
+.Contact-card #name{
+    width: 75%;
+    height: 40px;
+    color: wheat;
+    background: none;
+    border: 2px solid #555555;
+    margin-bottom: 20px;
+    
+}
+.Contact-card #email{
+    width: 75%;
+    height: 40px;
+    color: wheat;
+    background: none;
+    border: 2px solid #555555;
+    margin-bottom: 20px;
+}.Contact-card #subject{
+    width: 75%;
+    height: 40px;
+    color: wheat;
+    background: none;
+    border: 2px solid #555555;
+    margin-bottom: 20px;
+}.Contact-card #mensagem{
+    width: 75%;
+    height: 100px;
+    color: wheat;
+    background: none;
+    border: 2px solid #555555;
+    margin-bottom: 80px;
+    resize: none;
+}
+
+.Contact{
+    display: flex;
+    justify-content: center;
+}
